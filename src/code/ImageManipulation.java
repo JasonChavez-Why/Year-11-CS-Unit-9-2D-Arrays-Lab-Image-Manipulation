@@ -8,7 +8,13 @@ public class ImageManipulation {
      *  Write a statement that will display the image in a window
      */
     public static void main(String[] args) {
-        APImage image = new APImage("cyberpunk2077.jpg");
+        String file = "cyberpunk2077.jpg";
+        rotateImage(file);
+        reflectImage(file);
+        edgeDetection(file, 15);
+        blackAndWhite(file);
+        grayScale(file);
+        APImage image = new APImage(file);
         image.draw();
     }
 
