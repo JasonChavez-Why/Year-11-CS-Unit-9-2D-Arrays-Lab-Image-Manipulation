@@ -36,7 +36,6 @@ public class ImageManipulation {
                 pixel.setRed(average);
                 pixel.setGreen(average);
                 pixel.setBlue(average);
-                grayImage.setPixel(x, y, pixel);
             }
         }
         grayImage.draw();
@@ -128,15 +127,15 @@ public class ImageManipulation {
                 } else {
                     belowAvg = currentAvg;
                 }
-                if (Math.abs(currentAvg - leftAvg) > threshold ||
-                        Math.abs(currentAvg - belowAvg) > threshold) {
-                    currentPixel.setRed(0);
-                    currentPixel.setGreen(0);
-                    currentPixel.setBlue(0);
-                } else {
+                if (Math.abs(currentAvg - leftAvg) < threshold ||
+                        Math.abs(currentAvg - belowAvg) < threshold) {
                     currentPixel.setRed(255);
                     currentPixel.setGreen(255);
                     currentPixel.setBlue(255);
+                } else {
+                    currentPixel.setRed(0);
+                    currentPixel.setGreen(0);
+                    currentPixel.setBlue(0);
                 }
                 edgeImage.setPixel(x, y, currentPixel);
             }
